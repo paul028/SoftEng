@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Connection Type"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/localhostbutton"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="#FFFFFF"
+        android:drawablePadding="-20dp"
+        android:drawableTop="@drawable/home_icon"
+        android:text="Localhost"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/internetbutton"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="#FFFFFF"
+        android:drawablePadding="20dp"
+        android:drawableTop="@drawable/internet_icon"
+        android:text="Internet"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

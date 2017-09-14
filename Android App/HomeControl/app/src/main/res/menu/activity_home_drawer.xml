@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_switch"
+            android:icon="@drawable/switch_icon"
+            android:title="Switch"
+            android:checked="true" />
+        <item
+            android:id="@+id/nav_alarms"
+            android:icon="@drawable/alarm"
+            android:title="Alarms"/>
+        <item
+            android:id="@+id/nav_light"
+            android:icon="@drawable/alarm"
+            android:title="Lights"/>
+        <item
+            android:id="@+id/nav_logs"
+            android:icon="@drawable/logs"
+            android:title="Logs" />
+    </group>
+
+    <item android:title="Configure">
+        <menu>
+            <item
+                android:id="@+id/nav_switch_settings"
+                android:icon="@drawable/settings_icon"
+                android:title="Switch Settings" />
+            <item
+                android:id="@+id/nav_alarm_settings"
+                android:icon="@drawable/settings_icon"
+                android:title="Alarm Settings" />
+            <item
+                android:id="@+id/nav_lights_schedule"
+                android:icon="@drawable/settings_icon"
+                android:title="Switch Schedule" />
+
+            <item
+                android:id="@+id/nav_change_password"
+                android:icon="@drawable/settings_icon"
+                android:title="Change Password" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/settings_icon"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>
