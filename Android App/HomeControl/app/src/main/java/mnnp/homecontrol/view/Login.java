@@ -2,6 +2,7 @@ package mnnp.homecontrol.view;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,6 +28,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import mnnp.homecontrol.controller.Configure;
 import mnnp.homecontrol.R;
+import mnnp.homecontrol.model.Loginlist;
+
 public class Login extends Activity
 {
     private SharedPreferences sharedPreferences;
@@ -99,17 +102,33 @@ public class Login extends Activity
         {
             pDialog.setMessage("Logging in...");
             pDialog.show();
-            String URL  = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Server IP Address","http://")+"/SoftEng/phpFiles/login.php";
+            String URL  = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Server IP Address","http://")+"/SoftEng/phpFiles/login2.php";
             StringRequest request = new StringRequest(Request.Method.POST, URL,new Response.Listener<String>() {
                 public void onResponse(String response) {
 
                     try {
                         JSONObject jsonObject = new JSONObject(
                                 response);
+
                         if (jsonObject.names().get(0).equals("success"))
                         {
-                            final String nameofUser = jsonObject.getString("success").toString();
-                            pDialog.setMessage("Hello, "+nameofUser+".");
+                            final String[] nameofUser={"",""};
+                           // final String nameofUser = jsonObject.getString("success").toString();
+                             final String temp = jsonObject.getString("success").toString();
+                            int check =0;
+                            for(int i=0;i<temp.length();i++)
+                            {
+                                if (temp.charAt(i) == ',') {
+                                    check++;
+                                }
+                                if(check==0) {
+                                    nameofUser[0]+=temp.charAt(i);
+                                }
+                                if(check==1) {
+                                    nameofUser[1]+=temp.charAt(i);
+                                }
+                            }
+                            pDialog.setMessage("Hello, "+nameofUser[0]+".");
                             Thread timer = new Thread()
                             {
                                 public void run()
@@ -127,9 +146,19 @@ public class Login extends Activity
                                         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
                                         editor.putString("userLoggedIn", usernamelogged);
-                                        editor.putString("User Name",nameofUser);
+                                        editor.putString("User Name",nameofUser[0]);
                                         editor.apply();
-                                        startActivity(new Intent(getApplicationContext(), Home.class));
+
+                                   //     startActivity(new Intent(getApplicationContext(), Home.class));
+                                        if(nameofUser[1].equals(",user"))
+                                        {
+                                            startActivity(new Intent(getApplicationContext(), Home.class));
+                                        }
+                                        if(nameofUser[1].equals(",admin"))
+                                        {
+                                            startActivity(new Intent(getApplicationContext(), Admin_Home.class));
+                                        }
+                                     //   startActivity(new Intent(getApplicationContext(), Admin_Home.class));
                                     }
                                 }
 
@@ -154,7 +183,7 @@ public class Login extends Activity
                 public void onErrorResponse(VolleyError arg0)
                 {
                     pDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Unable to login. Please check if you're connected to the internet", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Unable to Login. Please check if you're connected to the internet", Toast.LENGTH_LONG).show();
                 }
             }) {
                 protected Map<String, String> getParams()

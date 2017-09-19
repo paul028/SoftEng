@@ -13,7 +13,7 @@
             android:title="Alarms"/>
         <item
             android:id="@+id/nav_light"
-            android:icon="@drawable/alarm"
+            android:icon="@drawable/lightsicon"
             android:title="Lights"/>
         <item
             android:id="@+id/nav_logs"
@@ -34,15 +34,15 @@
             <item
                 android:id="@+id/nav_lights_schedule"
                 android:icon="@drawable/settings_icon"
-                android:title="Switch Schedule" />
+                android:title="Lights Settings" />
 
             <item
                 android:id="@+id/nav_change_password"
-                android:icon="@drawable/settings_icon"
+                android:icon="@drawable/change_password_icon"
                 android:title="Change Password" />
             <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/settings_icon"
+                android:icon="@drawable/logout"
                 android:title="Logout" />
         </menu>
     </item>

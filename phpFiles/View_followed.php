@@ -1,7 +1,7 @@
 <?php
 	require_once 'connection.php';
 	header('Content-Type: application/json');
-	class ViewFollowedReports // query use to fetch all of your post on your own timeline
+	class ViewTimeline // used for filtering your feed to only display the post of your followed users
 	{
 		private $db;
 		private $connection;
@@ -11,14 +11,16 @@
 			$this->connection = $this->db->get_connection();
 		}
          
-         function does_followedreport_exist($username)
+         function does_viewtimeline_exist($username)
 		{
-			$query = "select CONCAT(u.first_name, ' ', u.last_name) AS FullName, u.profile_picture, r.latitude, r.longitude, 
-		 r.descriptions, r.date_reported, r.report_picture1, r.status, r.commends, s.situation_name from users u join 		reports r 
+						$query = "select u.first_name, u.last_name, u.profile_picture, r.latitude, r.longitude, 
+			r.remarks, r.descriptions, r.date_reported, r.report_picture1, r.report_picture2, 
+			r.report_picture3, r.status, r.commends from users u join reports r 
 			on (u.user_id=r.user_id)
-            join situation s
-            on (s.situation_id=r.situation_id)
-			 where u.username='$username' order by r.date_reported desc";
+			join followers f
+			on (f.user_id2=u.user_id)
+			where f.user_id = (select user_id from users where username ='$username')
+			order by r.date_reported desc";
 			$result = mysqli_query($this->connection, $query);
 			$json = array();
 			
@@ -38,10 +40,10 @@
 			mysqli_close($this->connection);
 		}
 	}
-	$viewTimeline = new ViewFollowedReports();
+	$viewOrders = new ViewTimeline();
 	if(isset($_GET['username']))
 	{
 		$username = $_GET['username'];
-		$viewTimeline -> does_followedreport_exist($username);
+		$viewOrders -> does_viewtimeline_exist($username);
 	}
 ?> 				

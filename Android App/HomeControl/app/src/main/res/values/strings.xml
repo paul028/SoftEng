@@ -5,4 +5,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="regfname">First Name</string>
+    <string name="reglname">Last Name</string>
+    <string name="reguname">Username</string>
+    <string name="regpass">Password</string>
+    <string name="regrpass">Password</string>
+    <string name="regaddress">Address</string>
+    <string name="regemail">Email</string>
+
 </resources>

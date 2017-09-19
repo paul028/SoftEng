@@ -41,6 +41,7 @@ public class Switches_Page extends Fragment
     private String URL_FEED = "";
     String username="";
 
+
     private ProgressDialog pDialog;
     private List<Switches> ProductList = new ArrayList<Switches>();
     private ListView listView;
@@ -60,11 +61,11 @@ public class Switches_Page extends Fragment
         listView.setAdapter(adapter);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-         username = sharedPreferences.getString("userLoggedIn","");
+        username = sharedPreferences.getString("userLoggedIn","");
         ProductList.clear();
 
         pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading Switches");
+        pDialog.setMessage("Loading Lights");
         pDialog.setCancelable(false);
         pDialog.show();
         String url  = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).getString("Server IP Address","http://")+"/SoftEng/phpFiles/view_myswitch.php?username="+username;

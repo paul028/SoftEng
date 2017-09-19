@@ -14,7 +14,7 @@
          function openlogs()
 		{
       $query = "select a.app_name, al.state, concat(ua.firstname,' ',ua.lastname) as name, al.log_time from appliance a
-      join appliance_log al on(a.app_id=al.app_id) join user_account ua on(ua.user_id=al.user_id)";
+      join appliance_log al on(a.app_id=al.app_id) join user_account ua on(ua.user_id=al.user_id) order by log_time desc";
 
 			$result = mysqli_query($this->connection, $query);
 			$json = array();

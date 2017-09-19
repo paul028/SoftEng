@@ -17,6 +17,10 @@
 			$result = mysqli_query($this->connection, $query);
 			$app_id = mysqli_fetch_row($result);
 
+			$query5 = "select gpio from appliance where app_name ='$app_name'";
+			$result5 = mysqli_query($this->connection, $query5);
+			$gpio = mysqli_fetch_row($result5);
+
 			$query4 = "select user_id from user_account where username ='$username'";
 			$result3 = mysqli_query($this->connection, $query4);
 			$user_id = mysqli_fetch_row($result3);
@@ -27,8 +31,9 @@
 			$query2 ="update appliance set app_state =0 where app_id = '$app_id[0]'";
 			$result2 = mysqli_query($this->connection,$query2);
 			$json = array();
-			$setmode17 = shell_exec("/usr/local/bin/gpio -g mode 17 out"); // set GPIO 17 as output 
-				$gpio_on = shell_exec("/usr/local/bin/gpio -g write 17 0"); // turn off GPIO 17
+
+			$setmode17 = shell_exec("/usr/local/bin/gpio -g mode '$gpio[0]' out"); // set GPIO 17 as output
+				$gpio_on = shell_exec("/usr/local/bin/gpio -g write '$gpio[0]' 0"); // turn off GPIO 17
 			if($result2)
 			{
 
