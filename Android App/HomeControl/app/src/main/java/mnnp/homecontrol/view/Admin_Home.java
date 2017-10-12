@@ -87,20 +87,18 @@ public class Admin_Home extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame2, new Remove_Controls()).addToBackStack(null).commit();
 
         }
-        else if (id == R.id.nav_editUser) //
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame2, new Register()).addToBackStack(null).commit();
-
-        }
-        else if (id == R.id.nav_adminLogs) //
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame2, new Register()).addToBackStack(null).commit();
-
-        }
         else if (id == R.id.nav_logout)
         {
             Toast.makeText(getApplicationContext(), "Logout", Toast.LENGTH_LONG).show();
             finish();
+        }
+        else if (id == R.id.nav_change_password)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame2, new Change_Password()).addToBackStack(null).commit();
+        }
+        else if (id == R.id.nav_about)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame2, new About()).addToBackStack(null).commit();
         }
 
 
