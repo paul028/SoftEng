@@ -15,9 +15,9 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/icon"
-        android:layout_gravity="center"/>
+        android:src="@drawable/icon2" />
 
 
 </LinearLayout>
