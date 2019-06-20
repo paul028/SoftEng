@@ -21,6 +21,13 @@
 ![alt text](https://github.com/paul028/SoftEng/blob/master/Schematic%20Files/schematic2.png)
 <br> Power Supply Block
 
+# Database Structure
+<br> the Project uses mysql database
+<br> you can use XAMPP for easy implementation of the system.
+[XAMPP Installer can be seen here.](https://www.apachefriends.org/index.html)
+![alt text](https://github.com/paul028/SoftEng/blob/master/database%20backup/download.png)
+<br> Database Design
+
 
 
 
