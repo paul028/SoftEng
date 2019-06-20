@@ -11,5 +11,7 @@
 [Source Code](https://github.com/paul028/SoftEng/tree/master/Android%20App/HomeControl)
 <br> Requires SDK 24.0
 <br> compatible on Android Phones with OS version 5.0 and up
-
+<br>
+<br> Sample User Interface
+![alt text](https://github.com/paul028/SoftEng/blob/master/Android%20App/sample%20UI%20-%20user.png)
 
