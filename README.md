@@ -9,6 +9,8 @@
 
 # Android App Source Code
 [Source Code](https://github.com/paul028/SoftEng/tree/master/Android%20App/HomeControl)
+<br> to compile and run the code, download Andoid Studio on the provided 
+[link.](https://developer.android.com/studio/?gclid=EAIaIQobChMIttzBjoX34gIVkHZgCh3jZAHWEAAYASAAEgIGw_D_BwE)
 <br> Requires SDK 24.0
 <br> compatible on Android Phones with OS version 5.0 and up
 <br>
