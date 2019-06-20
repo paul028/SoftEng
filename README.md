@@ -7,7 +7,7 @@
 <br>Paul Vincent Nonat
 <br>Jeffrey Pabilonia
 
-#Android App Source Code
+# Android App Source Code
 [Source Code](https://github.com/paul028/SoftEng/tree/master/Android%20App/HomeControl)
 <br> Requires SDK 24.0
 <br> compatible on Android Phones with OS version 5.0 and up
